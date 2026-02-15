@@ -109,7 +109,7 @@ public class Ejemplo1 {
         
         float numero = sc.nextFloat();
         
-        System.out.println("Ingrese cuanto dinero quiere gaster: ");
+        System.out.println("Ingrese cuanto dinero quiere gastar: ");
         double dinero = sc.nextDouble();
         
         System.out.println("Hola " + nombre + ", tienes " + edad + " años, quieres gastar " + dinero + " quetzales y tu numero es: " + numero);
