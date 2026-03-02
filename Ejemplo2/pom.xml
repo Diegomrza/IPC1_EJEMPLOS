@@ -26,4 +26,5 @@
             </plugin>
         </plugins>
     </build>
+    <name>Ejemplo2</name>
 </project>
