@@ -1,0 +1,17 @@
+Operacion:Login;Usuario:201901429;Status:Correcto
+Operacion:Login;Usuario:201901429;Status:Correcto
+Operacion:Login;Usuario:201901429;Status:Erroneo
+Operacion:Login;Usuario:201901429;Status:Erroneo
+Operacion:Login;Usuario:201901429;Status:Erroneo
+Operacion:Login;Usuario:201901429;Status:Erroneo
+Operacion:Login;Usuario:201901429;Status:Erroneo
+Operacion:Login;Usuario:201901429;Status:Erroneo
+Operacion:Login;Usuario:201901429;Status:Erroneo
+Operacion:Login;Usuario:201901429;Status:Erroneo
+Operacion:Login;Usuario:201901429;Status:Erroneo
+Operacion:Login;Usuario:201901429;Status:Erroneo
+Operacion:Login;Usuario:201901429;Status:Correcto
+Operacion:Login;Usuario:admin;Status:Correcto
+Operacion:Login;Usuario:admin;Status:Correcto
+Operacion:VerBitacora;Usuario:201901429;Estado:Exitoso
+Operacion:VerBitacora;Usuario:201901429;Estado:Exitoso
