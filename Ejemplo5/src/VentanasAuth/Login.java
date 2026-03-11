@@ -1,9 +1,9 @@
-package VentanasAutenticacion;
+package VentanasAuth;
 
-import Entidades.Usuario;
-import Principal.main;
+import Entidades.*;
+import Principal.Inicio;
 import VentanasAdmin.PanelAdmin;
-import VentanasUsuario.InicioUsuario;
+import VentanasOperador.GestionesOperador;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {    
@@ -146,6 +146,7 @@ public class Login extends javax.swing.JFrame {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         String username = txtUser.getText();
         
+        // admin, admin
         if(username.equals("admin")) {
             char[]entrada = this.txtPassword.getPassword();
             String password = new String(entrada);
@@ -159,13 +160,14 @@ public class Login extends javax.swing.JFrame {
                 // Mostrando la ventana del panel de administrador
                 panelAdministrador.setVisible(true);
                 
+                Inicio.archivoBitacora.AgregarLinea("Operacion:Login;Usuario:admin;Status:Correcto");
+                
                 // Salir de la funcion para no ejecutar lo que esta debajo
                 return;
-            }
-            
+            }            
         }
         
-        Usuario user = main.ObtenerUsuario(username);
+        Usuario user = Inicio.ObtenerUsuario(username);
         
         // Si es diferente de null significa que encontro al usuario
         if (user != null) {
@@ -173,31 +175,45 @@ public class Login extends javax.swing.JFrame {
             String contrasenaIngresada = new String(entrada);
             
             // Verificamos que la contrasena ingresada coincida con la contrasena del usuario actual
-            if (user.ContrasenaCorrecta(contrasenaIngresada)) {
+            if (user.ValidarContrasena(contrasenaIngresada)) {
                 // Registrando accion en la bitacora
-                main.bitacora.AgregarLinea("Operacion:Login;Usuario:" + username + ";Status:Correcto");
+                Inicio.archivoBitacora.AgregarLinea("Operacion:Login;Usuario:" + username + ";Status:Correcto");
 
                 // Mostrando mensaje de Login exitoso
                 JOptionPane.showMessageDialog(this, "Bienvenido " + username);                
                 
                 // TODO: Segun el rol redirigir
+                if (user.getRol() == 2) { // Rol de operador
+                    // Cerrar ventana actual y liberar recursos
+                    this.dispose();
+                    
+                    GestionesOperador go = new GestionesOperador();
+                    go.setVisible(true);
+                }
                 
                 // Creando ventana de inicio para el usuario logueado
-                InicioUsuario ventanaInicioUsuario = new InicioUsuario();
+                // InicioUsuario ventanaInicioUsuario = new InicioUsuario();
                 
                 // Mostrando la ventana
-                ventanaInicioUsuario.setVisible(true);
+                // ventanaInicioUsuario.setVisible(true);
 
                 // Cerrando ventana de login y liberando recursos
                 this.dispose();
+            } else {
+            // Registrando accion en la bitacora => pueden manejarlo de forma diferente
+            Inicio.archivoBitacora.AgregarLinea("Operacion:Login;Usuario:" + username + ";Status:Erroneo");
+            
+            // Mostrando mensaje de login incorrecto
+            JOptionPane.showMessageDialog(this, "Credenciales incorrectas!");
             }
         } else {
             // Registrando accion en la bitacora => pueden manejarlo de forma diferente
-            main.bitacora.AgregarLinea("Operacion:Login;Usuario:" + username + ";Status:Erroneo");
+            Inicio.archivoBitacora.AgregarLinea("Operacion:Login;Usuario:" + username + ";Status:Erroneo");
             
             // Mostrando mensaje de login incorrecto
             JOptionPane.showMessageDialog(this, "Credenciales incorrectas!");
         }
+       
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

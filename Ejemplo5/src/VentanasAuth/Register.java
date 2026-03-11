@@ -1,7 +1,7 @@
-package VentanasAutenticacion;
+package VentanasAuth;
 
 import Entidades.Usuario;
-import Principal.main;
+import Principal.Inicio;
 import javax.swing.JOptionPane;
 
 public class Register extends javax.swing.JFrame {
@@ -35,7 +35,7 @@ public class Register extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         lblPassword = new javax.swing.JLabel();
         btnRegistrar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,10 +69,10 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel1.setText("Ya tienes una cuenta? Inicia sesion");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblLogin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblLogin.setForeground(new java.awt.Color(51, 51, 255));
+        lblLogin.setText("Ya tienes una cuenta? Inicia sesion");
+        lblLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 IniciarSesion(evt);
             }
@@ -97,7 +97,7 @@ public class Register extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(55, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
         jPanel1Layout.setVerticalGroup(
@@ -122,7 +122,7 @@ public class Register extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -160,16 +160,16 @@ public class Register extends javax.swing.JFrame {
         String carrera = this.txtCarrera.getText();
         char[] password = this.txtPassword.getPassword();
         String contrasena = new String(password);
+
+        Usuario user = new Usuario(1, carnet, contrasena, nombre, carrera);
         
-        Usuario user = new Usuario(carnet, nombre, carrera, contrasena);
-        
-        if (!main.AgregarUsuario(user)) {
-            System.out.println("");
-            main.bitacora.AgregarLinea("Operacion:Registro;Usuario:"+carnet+"Status:Fallido");
+        if (!Inicio.AgregarUsuario(user)) {
+            JOptionPane.showMessageDialog(this, "Error registrando al usuario");
+            Inicio.archivoBitacora.AgregarLinea("Operacion:Registro;Usuario:"+carnet+"Status:Fallido");
             return;
         }
         
-        main.bitacora.AgregarLinea("Operacion:Registro;Usuario:"+carnet+"Status:Correcto");
+        Inicio.archivoBitacora.AgregarLinea("Operacion:Registro;Usuario:"+carnet+"Status:Correcto");
         JOptionPane.showMessageDialog(this, "Registro exitoso!");
         
         // Cerrando ventana actual y liberando recursos
@@ -184,10 +184,10 @@ public class Register extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCarnet;
     private javax.swing.JLabel lblCarrera;
+    private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JTextField txtCarnet;
