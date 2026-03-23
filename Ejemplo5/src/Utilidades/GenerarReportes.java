@@ -55,12 +55,12 @@ public class GenerarReportes {
 		for (int i = 0; i < Inicio.totalUsuarios; i++) {
 			Usuario user = Inicio.usuarios[i];
 			if (user != null) {
-				Inicio.archivoReportes.AgregarLinea("        <tr>");
-				Inicio.archivoReportes.AgregarLinea("            <td>" + user.getCodigo() + "</td>");
-				Inicio.archivoReportes.AgregarLinea("            <td>" + user.getNombre() + "</td>");
-				Inicio.archivoReportes.AgregarLinea("            <td>" + user.getCarrera() + "</td>");
-				Inicio.archivoReportes.AgregarLinea("            <td>" + user.GetRolNombre() + "</td>");
-				Inicio.archivoReportes.AgregarLinea("        </tr>");
+                            Inicio.archivoReportes.AgregarLinea("        <tr>");
+                            Inicio.archivoReportes.AgregarLinea("            <td>" + user.getCodigo() + "</td>");
+                            Inicio.archivoReportes.AgregarLinea("            <td>" + user.getNombre() + "</td>");
+                            Inicio.archivoReportes.AgregarLinea("            <td>" + user.getCarrera() + "</td>");
+                            Inicio.archivoReportes.AgregarLinea("            <td>" + user.GetRolNombre() + "</td>");
+                            Inicio.archivoReportes.AgregarLinea("        </tr>");
 			}
 		}
 
