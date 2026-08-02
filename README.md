@@ -1,2 +1,2 @@
 # IPC1_EJEMPLOS
-Ejemplos de IPC1 1S 2026
+Ejemplos de IPC1 2026
