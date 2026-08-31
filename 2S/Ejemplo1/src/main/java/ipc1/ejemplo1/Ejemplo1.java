@@ -1,5 +1,6 @@
 package ipc1.ejemplo1;
 
+
 /**
  * Introduccion a la Programacion y Computacion 1 - A.
  *
@@ -19,10 +20,11 @@ package ipc1.ejemplo1;
  */
 public class Ejemplo1 {
     public static int edad = 29;    
+    public static char Nombre = 'C';
     
     public static void main(String[] args) {
-        ejemploTiposDeDatos();
-        ejemploVariables();
+//        ejemploTiposDeDatos();
+//        ejemploVariables();
 //        ejemploOperadoresAsignacion();
 //        ejemploOperadoresLogicosBooleanos();
 //        ejemploEstructurasControl();
@@ -31,7 +33,7 @@ public class Ejemplo1 {
 //        ejemploArreglos2D();
 
         // ===== Ejemplos CON ERRORES para practicar debug =====
-        ejemploErrorTipoDeDatoOverflow();
+//        ejemploErrorTipoDeDatoOverflow();
 //        ejemploErrorDivisionEnteraPorCero();
 //        ejemploErrorDivisionDecimalPorCero();
 //        ejemploErrorIndiceFueraDeRango();
@@ -41,7 +43,7 @@ public class Ejemplo1 {
 //        ejemploErrorLogicoAsignacionEnVezDeComparacion();
 //        ejemploErrorArreglo2DIndiceInvertido();
 //        ejemploErrorCicloInfinito(); // CUIDADO: se queda pegado (Ctrl+C o boton Stop)
-    }
+    }   
 
     // =====================================================================
     // 1. TIPOS DE DATOS
@@ -201,17 +203,17 @@ public class Ejemplo1 {
             System.out.println("Nota: Reprobado");
         }
 
-        int diaSemana = 3;
+        int diaSemana = 1;
         switch (diaSemana) {
             case 1:
                 System.out.println("Lunes");
-                break;
+                
             case 2:
                 System.out.println("Martes");
-                break;
+                
             case 3:
                 System.out.println("Miercoles");
-                break;
+                
             default:
                 System.out.println("Otro dia");
                 break;
